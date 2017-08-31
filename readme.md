@@ -42,28 +42,28 @@ Die Ports werden unverändert weitergeleitet, nämlich
 
 Zum Testen, ob die Verbindung mit dem Port 5018 (SMTP) möglich ist, kann man die Befehle `telnet localhost 5018` und `openssl s_client -connect localhost:5018` verwenden. Die Ausgabe sollte dann etwa so aussehen.
 
-  > telnet localhost 5018
-  Trying ::1...
-  Connected to localhost.
-  Escape character is '^]'.
-  Connection closed by foreign host.
-  > openssl s_client -connect localhost:5018
-  CONNECTED(00000003)
-  write:errno=104
-  ---
-  no peer certificate available
-  ---
-  No client certificate CA names sent
-  ---
-  SSL handshake has read 0 bytes and written 176 bytes
-  Verification: OK
-  ---
-  New, (NONE), Cipher is (NONE)
-  Secure Renegotiation IS NOT supported
-  Compression: NONE
-  Expansion: NONE
-  No ALPN negotiated
-  SSL-Session:
+    > telnet localhost 5018
+    Trying ::1...
+    Connected to localhost.
+    Escape character is '^]'.
+    Connection closed by foreign host.
+    > openssl s_client -connect localhost:5018
+    CONNECTED(00000003)
+    write:errno=104
+    ---
+    no peer certificate available
+    ---
+    No client certificate CA names sent
+    ---
+    SSL handshake has read 0 bytes and written 176 bytes
+    Verification: OK
+    ---
+    New, (NONE), Cipher is (NONE)
+    Secure Renegotiation IS NOT supported
+    Compression: NONE
+    Expansion: NONE
+    No ALPN negotiated
+    SSL-Session:
       Protocol  : TLSv1.2
       Cipher    : 0000
       Session-ID: 
@@ -76,7 +76,6 @@ Zum Testen, ob die Verbindung mit dem Port 5018 (SMTP) möglich ist, kann man di
       Timeout   : 7200 (sec)
       Verify return code: 0 (ok)
       Extended master secret: no
-  ---
 
 # Disclaimer
 
