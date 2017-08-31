@@ -1,0 +1,38 @@
+# Copyright (c) 2017 by Niklaus Giger niklaus.giger@member.fsf.org
+#
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Eclipse Public License v1.0
+# which accompanies this distribution, and is available at
+# http:#www.eclipse.org/legal/epl-v10.html
+#
+# This is a setup for running peter schönbuchers privates wiki
+#
+version: '2.0'
+services:
+  hinclient:
+    name: hinclient
+    build: .
+    networks:
+      private:
+      public:
+    user: root
+    ports:
+      - 5016:5016
+      - 5018:5018
+      - 5019:5019
+      - 5020:5020
+    volumes:
+    # The HIN log file will be visible via $(PWD)/logs/HIN\ Client/hinclient.log 
+      - ${PWD}/logs:/root/.HIN
+    # Add here the complete path to your HIN-Identity
+      - ${PWD}/YOUR_HIN_USER_ID.hin:/root/user.hin
+    environment:
+    # This must be the value of your passphrase for the HIN-Client
+    # If it is wrong you will find the following line in the startup log
+    # java.security.UnrecoverableKeyException: PKCS12 verification error, incorrect password
+      PASSPHRASE: YOUR_HIN_PASSWORD
+ 
+networks:
+  public:
+  private:
+   

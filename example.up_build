@@ -1,0 +1,92 @@
+> docker-compose up --build 
+Building hinclient
+Step 1/9 : FROM anapsix/alpine-java:8u121b13_jdk
+ ---> 2d0accb0e2f8
+Step 2/9 : MAINTAINER Niklaus Giger "niklaus.giger@member.fsf.org"
+ ---> Using cache
+ ---> c0ee813a176f
+Step 3/9 : ENV DEBIAN_FRONTEND noninteractive
+ ---> Using cache
+ ---> ae2cc7b700f2
+Step 4/9 : ENV JRE_VERSION oracle-java8-jre_8u121_amd64.deb
+ ---> Using cache
+ ---> 8f909004857a
+Step 5/9 : RUN cat /etc/passwd
+ ---> Using cache
+ ---> b227741c2acc
+Step 6/9 : ADD HINClient_unix_1_5_3-50.tar.gz /root
+ ---> Using cache
+ ---> ff345c10af1d
+Step 7/9 : ADD entrypoint.sh /root/
+ ---> Using cache
+ ---> cc35739bde2d
+Step 8/9 : ADD start_hin.sh /root/
+ ---> f26887f56644
+Removing intermediate container 019eeed33d49
+Step 9/9 : CMD /root/entrypoint.sh
+ ---> Running in ffb89115a8a2
+ ---> bd1a1b2f7bf1
+Removing intermediate container ffb89115a8a2
+Successfully built bd1a1b2f7bf1
+Successfully tagged dockerhinclient_hinclient:latest
+Recreating dockerhinclient_hinclient_1
+Attaching to dockerhinclient_hinclient_1
+hinclient_1  | Configuring the HIN Client (Singleuser Servermodus)
+hinclient_1  | keystore=/root/user_read_only.hin
+hinclient_1  | passphrase=/root/passphrase.txt
+hinclient_1  |  INFO [main] (SourceFile:86) - Reading the command line parameters from file /root/.hinclient-service-parameters.txt
+hinclient_1  |  INFO [main] (SourceFile:48) - Starting HIN Client on Thu Aug 31 10:42:23 GMT 2017
+hinclient_1  |  INFO [main] (SourceFile:32) - Instantiating Platform object for Unix
+hinclient_1  |  INFO [main] (SourceFile:74) - The upgrade directory /root/HIN Client/./versions does not exist
+hinclient_1  |  INFO [main] (SourceFile:74) - The upgrade directory /root/./.HIN/HIN Client/versions does not exist
+hinclient_1  |  INFO [main] (SourceFile:56) - Creating lock file in directory /tmp
+hinclient_1  |  INFO [main] (SourceFile:22) - Start HIN Client with Java version 1.8.0_121 (in directory /opt/jdk1.8.0_121/jre).
+hinclient_1  |  INFO [main] (SourceFile:32) - Instantiating Platform object for Unix
+hinclient_1  |  INFO [main] (SourceFile:501) - HIN Client Version 1.5.3-50
+hinclient_1  |  INFO [main] (SourceFile:345) - Resolving host localhost for HTTP Proxy Socket Server
+hinclient_1  |  INFO [main] (SourceFile:365) - Found loopback address localhost/127.0.0.1 of type class java.net.Inet4Address
+hinclient_1  |  INFO [main] (SourceFile:345) - Resolving host localhost for SMTP Proxy Socket Server
+hinclient_1  |  INFO [main] (SourceFile:365) - Found loopback address localhost/127.0.0.1 of type class java.net.Inet4Address
+hinclient_1  |  INFO [main] (SourceFile:345) - Resolving host localhost for POP3 Proxy Socket Server
+hinclient_1  |  INFO [main] (SourceFile:365) - Found loopback address localhost/127.0.0.1 of type class java.net.Inet4Address
+hinclient_1  |  INFO [main] (SourceFile:345) - Resolving host localhost for IMAP Proxy Socket Server
+hinclient_1  |  INFO [main] (SourceFile:365) - Found loopback address localhost/127.0.0.1 of type class java.net.Inet4Address
+hinclient_1  |  INFO [main] (SourceFile:105) - Starting Client API on http://localhost:5017/clientapi
+hinclient_1  |  INFO [main] (SourceFile:1266) - VeKa support not available
+hinclient_1  |  INFO [Timer-1] (SourceFile:52) - Running all checks, triggered automatically
+hinclient_1  |  INFO [Timer-1] (SourceFile:49) - Starting Check: Internet- verbindung
+hinclient_1  |  INFO [Async Authenticator] (SourceFile:270) - Initialize the key manager factory for HIN Identity with key store /root/user_read_only.hin.
+hinclient_1  |  INFO [Async Authenticator] (SourceFile:162) - Start session timeout.
+hinclient_1  |  INFO [Async Authenticator] (SourceFile:83) - Check whether the identity with the login name Identity is logged in.
+hinclient_1  |  INFO [Async Authenticator] (SourceFile:94) - Determine the certificate serial number for the active identity.
+hinclient_1  |  INFO [Async Authenticator] (SourceFile:99) - Check the active identity's certificate status.
+hinclient_1  |  INFO [Async Authenticator] (SourceFile:112) - Executing authenticate with loginName=Identity, certificateSerialNumber=2161cc4a8da685232af0e1685fb614f16cbe221f and authenticationInformation=ClientVersion={1.5.3-50} JRE={1.8.0_121} OS={Linux} OSArchitecture={amd64} OSVersion={4.9.0-3-amd64}...
+hinclient_1  |  INFO [Async Authenticator] (SourceFile:157) - Creating RestrictedCertificateServiceJAXWSClient
+hinclient_1  |  INFO [Timer-1] (SourceFile:50) - cryptocheck: is strong cryptography supported: false
+hinclient_1  |  INFO [Timer-1] (SourceFile:59) - Finished Check: Internet- verbindung
+hinclient_1  |  INFO [Timer-1] (SourceFile:49) - Starting Check: HIN Client Versionskontrolle
+hinclient_1  |  INFO [Async Authenticator] (SourceFile:171) - Returning RestrictedCertificateServiceJAXWSClient JAX-WS RI 2.2.10 svn-revision#919b322c92f13ad085a933e8dd6dd35d4947364b: Stub for https://gateway.hin.ch/clientservices/restricted/certificate
+hinclient_1  |  INFO [Timer-1] (SourceFile:74) - The upgrade directory /root/HIN Client/./versions does not exist
+hinclient_1  |  INFO [Timer-1] (SourceFile:74) - The upgrade directory /root/./.HIN/HIN Client/versions does not exist
+hinclient_1  |  INFO [Timer-1] (SourceFile:59) - Finished Check: HIN Client Versionskontrolle
+hinclient_1  |  INFO [Timer-1] (SourceFile:49) - Starting Check: Download Infomeldungen
+hinclient_1  |  INFO [Timer-1] (SourceFile:53) - No active InfoMessages found.
+hinclient_1  |  INFO [Timer-1] (SourceFile:59) - Finished Check: Download Infomeldungen
+hinclient_1  |  INFO [Timer-1] (SourceFile:49) - Starting Check: Ausgewählte Identität prüfen
+hinclient_1  |  INFO [Async Authenticator] (SourceFile:103) - Update the active identity's certificate status.
+hinclient_1  |  INFO [Async Authenticator] (SourceFile:176) - Updating lastlogin for status VALID
+hinclient_1  |  INFO [Timer-1] (SourceFile:101) - Determine the certificate serial number for the active identity.
+hinclient_1  |  INFO [Timer-1] (SourceFile:106) - Check the active identity's certificate status.
+hinclient_1  |  INFO [Timer-1] (SourceFile:254) - Executing getCertificateStatus with loginName=Identity and certificateSerialNumber=2161cc4a8da685232af0e1685fb614f16cbe221f...
+hinclient_1  |  INFO [Timer-1] (SourceFile:157) - Creating RestrictedCertificateServiceJAXWSClient
+hinclient_1  |  INFO [Timer-1] (SourceFile:171) - Returning RestrictedCertificateServiceJAXWSClient JAX-WS RI 2.2.10 svn-revision#919b322c92f13ad085a933e8dd6dd35d4947364b: Stub for https://gateway.hin.ch/clientservices/restricted/certificate
+hinclient_1  |  INFO [Timer-1] (SourceFile:110) - Update the active identity's certificate status.
+hinclient_1  |  INFO [Timer-1] (SourceFile:59) - Finished Check: Ausgewählte Identität prüfen
+hinclient_1  |  INFO [Timer-1] (SourceFile:49) - Starting Check: HIN Plattformzugang überprüfen
+hinclient_1  |  INFO [HttpProxyServerThread-1] (SourceFile:155) - Access secured resource: http://login.hin.ch/clientservices/
+hinclient_1  |  INFO [HttpProxyServerThread-1] (SourceFile:320) - login.hin.ch:80 - GET /clientservices/ HTTP/1.1
+hinclient_1  |  INFO [HttpProxyServerThread-1] (SourceFile:109) - No SSO cookie found for domain: login.hin.ch
+hinclient_1  |  INFO [HttpProxyHandlerThread-1] (SourceFile:320) - login.hin.ch:80 -  GET[200] /clientservices/
+hinclient_1  |  INFO [Timer-1] (SourceFile:59) - Finished Check: HIN Plattformzugang überprüfen
+hinclient_1  |  INFO [Timer-1] (SourceFile:75) - Finished all checks
+
