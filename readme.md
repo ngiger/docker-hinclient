@@ -7,10 +7,10 @@ Der ganze Setup basiert auf einem Shell Script von Fabian Schmid, das man als Re
 ## Stand August 2017
 
 Gemäss einer Aussage des HIN-Support läuft die akutelle HIN-Client Version für Linux (1.5.3-50) nur mir der OpenJDK 8u121b13
-Besten Dank für Ihre Anfrage. Das Problem ist wie Sie bereits vermutet haben nicht Ihre Internet Verbindung.
 
-Mit der Aktuellsten OpenJDK und OracleJava hat der HIN Client ein Problem und funktioniert nicht richtig.
-Wir Empfehlen Ihnen eine Extra Java Installation zu erstellen, und diese ältere Version für den HIN Client zu nutzen.
+    Besten Dank für Ihre Anfrage. Das Problem ist wie Sie bereits vermutet haben nicht Ihre Internet Verbindung.
+    Mit der Aktuellsten OpenJDK und OracleJava hat der HIN Client ein Problem und funktioniert nicht richtig.
+    Wir Empfehlen Ihnen eine Extra Java Installation zu erstellen, und diese ältere Version für den HIN Client zu nutzen.
 
 ## Vorbedingungen
 
@@ -27,6 +27,7 @@ Getestet wurde unter Debian Stretch (amd64). Andere Linux-Version/Distribution k
 Check that everything is fine. It should look like [example.up_build](example.up_build) 
 
 If you use systemd you can make the HIN-client start automatically by using the following commands.
+
     sudo cp docker-hinclient.service /etc/systemd/system
     sudo systemctl daemon-reload
     sudo systemctl enable docker-hinclient.service
@@ -76,6 +77,10 @@ Zum Testen, ob die Verbindung mit dem Port 5018 (SMTP) möglich ist, kann man di
       Timeout   : 7200 (sec)
       Verify return code: 0 (ok)
       Extended master secret: no
+
+# Tracking down errors
+
+If you see in the log `java.security.UnrecoverableKeyException: PKCS12 verification error, incorrect password` then you misstyped your password or it does not match the HIN-identify file.
 
 # Disclaimer
 
