@@ -21,7 +21,7 @@ Getestet wurde unter Debian Stretch (amd64). Andere Linux-Version/Distribution k
     git clone https://github.com/ngiger/docker-hinclient.git /usr/local/src/docker-hinclient
     cd /usr/local/src/docker-hinclient
     cp docker-compose.example docker-compose.yml
-    # Adapt in docker-compose.yml the values YOUR_HIN_USER_ID YOUR_HIN_PASSWORD
+    # Adapt in docker-compose.yml the values PASSPHRASE and IDENTITY_FILE
     docker-compose up --build
     
 Check that everything is fine. It should look like [example.up_build](example.up_build) 
