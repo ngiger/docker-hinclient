@@ -1,0 +1,16 @@
+[Unit]
+Description=Daemon for HIN-Client
+After=docker.service
+Wants=network.service
+Requires=docker.service
+
+[Service]
+Restart=on-failure
+StartLimitInterval=20
+StartLimitBurst=5
+TimeoutStartSec=0
+Environment=PWD=/usr/local/src/docker-hinclient
+ExecStart=/usr/bin/docker-compose -f /usr/local/src/docker-hinclient/docker-compose.yml up --build
+ExecStop=-/usr/bin/docker-compose -f /usr/local/src/docker-hinclient/docker-compose.yml stop
+[Install]
+WantedBy=multi-user.target

@@ -10,7 +10,6 @@
 version: '2.0'
 services:
   hinclient:
-    name: hinclient
     build: .
     networks:
       private:
@@ -24,15 +23,13 @@ services:
     volumes:
     # The HIN log file will be visible via $(PWD)/logs/HIN\ Client/hinclient.log 
       - ${PWD}/logs:/root/.HIN
-    # Add here the complete path to your HIN-Identity
-      - ${PWD}/YOUR_HIN_USER_ID.hin:/root/user.hin
+    # Add here the absolute path to your HIN-Identity
+      - /path/to/YOUR_HIN_USER_ID.hin:/root/user.hin
     environment:
     # This must be the value of your passphrase for the HIN-Client
     # If it is wrong you will find the following line in the startup log
     # java.security.UnrecoverableKeyException: PKCS12 verification error, incorrect password
       PASSPHRASE: YOUR_HIN_PASSWORD
-    # Here follows the absolute path to your HIN identity files
-      IDENTITY_FILE: /home/example/example.hin
  
 networks:
   public:

@@ -1,10 +1,9 @@
 #!/bin/bash
 echo "Configuring the HIN Client (Singleuser Servermodus)"
-set ${IDENTITY_FILE:-/root/user.hin}
-set ${PASSPHRASE:-top_secret}
-
+export IDENTITY_FILE=/root/user.hin
+export ${PASSPHRASEL:-top_secret}
 export IDENTITY_FILE_RO=/root/user_read_only.hin
-cp -pv $IDENTITY_FILE $IDENTITY_FILE_RO
+cp $IDENTITY_FILE $IDENTITY_FILE_RO
 echo "keystore=$IDENTITY_FILE_RO" > /root/.hinclient-service-parameters.txt
 echo "$PASSPHRASE" > /root/passphrase.txt
 echo "passphrase=/root/passphrase.txt" >> /root/.hinclient-service-parameters.txt

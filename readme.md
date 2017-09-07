@@ -32,6 +32,10 @@ If you use systemd you can make the HIN-client start automatically by using the 
     sudo systemctl daemon-reload
     sudo systemctl enable docker-hinclient.service
     sudo systemctl start docker-hinclient.service
+    sudo systemctl status docker-hinclient.service 
+    # It will take some time till Finished all checks signals, that the
+    # you may follow the log using
+    tail -f logs/HIN\ Client/hinclient.log 
 
 
 ## Tests
