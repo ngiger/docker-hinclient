@@ -24,6 +24,15 @@ Getestet wurde unter Debian Stretch (amd64). Andere Linux-Version/Distribution k
     # Adapt in docker-compose.yml the values PASSPHRASE and IDENTITY_FILE
     docker-compose up --build
     
+### Erstes Aufsetzen
+
+    xhost + # Remote X-Server erlauben
+    docker-compose run hinclient /usr/local/HIN\ Client/hinclientadmin 
+    # Dieses Fenster schliesst sich automatisch, solange man nicht auf das Feld 'Nicht schliessen' drückt.
+    # HIN-Zertifikat installieren
+    # Aber danach kann man immer noch nicht mit Thunderbird sich verbinden, da die Fehlermeldung
+    # Thunderbird konnte keine Einstellunge für Ihr E-Mail-Konto finden
+
 Check that everything is fine. It should look like [example.up_build](example.up_build) 
 
 If you use systemd you can make the HIN-client start automatically by using the following commands.
