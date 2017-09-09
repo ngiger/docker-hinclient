@@ -1,23 +1,23 @@
 #!/bin/bash
 echo "Configuring the HIN Client (Singleuser Servermodus)"
-export IDENTITY_FILE=/root/user.hin
-export ${PASSPHRASEL:-top_secret}
-export IDENTITY_FILE_RO=/root/user_read_only.hin
-cp $IDENTITY_FILE $IDENTITY_FILE_RO
-echo "keystore=$IDENTITY_FILE_RO" > /root/.hinclient-service-parameters.txt
-echo "$PASSPHRASE" > /root/passphrase.txt
-echo "passphrase=/root/passphrase.txt" >> /root/.hinclient-service-parameters.txt
-cat /root/.hinclient-service-parameters.txt
-# chown -R user_hin /root/passphrase.txt $IDENTITY_FILE_RO /root/.HIN
-chmod 600 /root/passphrase.txt $IDENTITY_FILE_RO
-/root/start_hin.sh
+set ${IDENTITY_FILE:-/home/user_hin/user.hin}
+set ${PASSPHRASE:-top_secret}
+export IDENTITY_FILE_RO=/home/user_hin/user_read_only.hin
+cp -v $IDENTITY_FILE $IDENTITY_FILE_RO
+echo "keystore=$IDENTITY_FILE_RO" > /home/user_hin/.hinclient-service-parameters.txt
+echo "$PASSPHRASE" > /home/user_hin/passphrase.txt
+echo "passphrase=/home/user_hin/passphrase.txt" >> /home/user_hin/.hinclient-service-parameters.txt
+cat /home/user_hin/.hinclient-service-parameters.txt
+chmod 600 /home/user_hin/passphrase.txt $IDENTITY_FILE_RO
+/usr/local/HIN\ Client/hinclientservice run-redirect
+
 status=$?
 echo START status is $status
-rm -f  /root/.HIN/HIN\ Client/hinclient.log
+rm -f  /home/user_hin/.HIN/HIN\ Client/hinclient.log
 while :
 do
   sleep 5
-  /root/HIN\ Client/hinclientservice status
+  /usr/local/HIN\ Client/hinclientservice status
   status=$?
   echo Status of hinclient is $status
   if [ $status -ne 0 ]

@@ -1,2 +1,2 @@
 #!/bin/bash
-/usr/local/HIN\ Client/hinclientservice run-redirect
+/usr/local/HIN\ Client/hinclientservice start

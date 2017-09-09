@@ -24,7 +24,7 @@ services:
       # The HIN log file will be visible via $(PWD)/.HIN\ Client/hinclient.log
       - ${HOME}/.HIN:/home/user_hin/.HIN
       # Add here the absolute path to your HIN-Identity
-      - ${PWD}/YOUR_HIN_USER_ID.hin:/root/user.hin
+      - ${PWD}/YOUR_HIN_USER_ID.hin:/home/user_hin/user.hin
     environment:
     # This must be the value of your passphrase for the HIN-Client
     # If it is wrong you will find the following line in the startup log
